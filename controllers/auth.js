@@ -40,6 +40,11 @@ router.post('/sign-in', async (req, res) => {
     if (!correctPassword) {
         return res.send('Login attempt failed. Please try again'); 
     }
+    req.session.user = {
+        username: userInDatabase.username, 
+        _id: userInDatabase._id 
+    }; 
+    res.redirect('/');
 }); 
 
 
