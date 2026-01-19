@@ -20,4 +20,14 @@ router.get('/new', (req, res) => {
     res.render('trainers/new.ejs'); 
 }); 
 
+router.post('/', async (req, res) => {
+    try {
+        req.body.owner = req.session.user._id; 
+        await Trainer.create(req.body); 
+        res.redirect('/trainers'); 
+    } catch (error) {
+        res.redirect('/trainers/new'); 
+    }
+}); 
+
 module.exports = router; 
