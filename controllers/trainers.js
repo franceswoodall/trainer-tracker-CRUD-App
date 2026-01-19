@@ -4,8 +4,8 @@ const Trainer = require('../models/trainer.js');
 const User = require('../models/user.js'); 
 const bcrypt = require('bcrypt'); 
 
-router.get('/', (req, res) => {
-    res.send('trainers index page'); 
+router.get('/', async (req, res) => {
+    res.render('trainers/index.ejs'); 
 }); 
 
 module.exports = router; 
