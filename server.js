@@ -31,7 +31,7 @@ app.get('/', async (req, res) => {
 
 app.use('/auth', authController); 
 
-
+// port
 
 app.listen(port, () => {
     console.log(`Trainer app is ready on port ${port}!`); 
