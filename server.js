@@ -10,7 +10,7 @@ const morgan = require('morgan');
 
 const port = process.env.PORT ? process.env.PORT : '3000'; 
 
-const authController = require ('./controllers/auth.js'); 
+const authController = require('./controllers/auth.js'); 
 
 mongoose.connect(process.env.MONGODB_URI); 
 
@@ -29,7 +29,7 @@ app.get('/', async (req, res) => {
     res.render('index.ejs'); 
 }); 
 
-app.use('auth', authController); 
+app.use('/auth', authController); 
 
 
 
