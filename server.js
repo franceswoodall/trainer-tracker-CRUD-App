@@ -20,6 +20,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method")); 
 app.use(morgan('dev')); 
 
+// routes
+
+// GET /
+app.get('/', async (req, res) => {
+    res.send('testing testing landing page'); 
+}); 
+
+
+
 app.listen(port, () => {
     console.log(`Trainer app is ready on port ${port}!`); 
 })
