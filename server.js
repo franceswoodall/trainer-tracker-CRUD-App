@@ -12,6 +12,7 @@ const session = require('express-session');
 const port = process.env.PORT ? process.env.PORT : '3000'; 
 
 const authController = require('./controllers/auth.js'); 
+const trainersController = require('./controllers/trainers.js'); 
 
 mongoose.connect(process.env.MONGODB_URI); 
 
@@ -32,7 +33,6 @@ app.use(
 
 // routes
 
-// GET /
 app.get('/', async (req, res) => {
     res.render('index.ejs', {
         user: req.session.user,  
@@ -40,6 +40,7 @@ app.get('/', async (req, res) => {
 }); 
 
 app.use('/auth', authController); 
+app.use('/trainers', trainersController); 
 
 // port
 

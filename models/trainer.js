@@ -5,7 +5,11 @@ const trainerSchema = new mongoose.Schema({
         type: String, 
         required: true,
     },
-    price: {
+    raceType: {
+        type: String, 
+        required: true,
+    },
+     price: {
         type: Number, 
         required: true, 
         min: 0, 
@@ -13,7 +17,7 @@ const trainerSchema = new mongoose.Schema({
     owner: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User', 
-    }. 
+    }, 
     favouritedByUsers: [
         {
             type: mongoose.Schema.Types.ObjectId, 
@@ -22,6 +26,6 @@ const trainerSchema = new mongoose.Schema({
     ]
 }); 
 
-const Trainer = mongoose.model('Trainer', trainerSceham); 
+const Trainer = mongoose.model('Trainer', trainerSchema); 
 
 module.exports = Trainer; 

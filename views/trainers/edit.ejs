@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= trainer.name %>/title>
+</head>
+    <%- include('./partials/navbar.ejs') %>
+<body>
+    <h1>Edit my trainer entry</h1>
+
+    <form action="trainers/<%= trainers._id%>?_method=PUT" method="POST">
+        <label for="trainerBrand">Trainer Brand</label>
+        <input type="text" name="trainerBrand" id="trainerBrand" value="<%= trainer.trainerBrand %>" />
+
+        <label for="raceType">Type of running</label>
+        <input type="text" name="raceType" id="raceType" value="<%= trainer.raceType %>" />
+
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price" min="0" value="<%=trainer.price%>" />
+    
+    </form>
+</body>
+</html>
