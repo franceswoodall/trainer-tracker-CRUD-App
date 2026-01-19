@@ -7,6 +7,11 @@ router.get('/sign-up', (req, res) => {
     res.render('auth/sign-up.ejs'); 
 }); 
 
+
+router.get('/sign-in', (req, res) => {
+    res.render('auth/sign-in.ejs'); 
+}); 
+
 router.post('/sign-up', async (req, res) => {
  
         const userInDatabase = await User.findOne({ username: req.body.username }); 
@@ -23,5 +28,6 @@ router.post('/sign-up', async (req, res) => {
         res.send(`Your account has been created ${user.username}`);
 
 }); 
+
 
 module.exports = router; 
