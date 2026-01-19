@@ -9,5 +9,13 @@
 <body>
     <h1>Here's a run-down of all trainers!</h1>
     <a href="/trainers/new">Add a New Trainer</a>
+
+    <ul>
+        <% trainers.forEach(trainer => { %>
+            <li>Trainer owned by <%= trainer.owner.username %></li>
+            <a href="/trainers/<%= trainer._id %>">View more details</a>
+        <% }); %>
+    </ul>
+
 </body>
 </html>

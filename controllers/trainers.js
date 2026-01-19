@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 
 router.get('/', async (req, res) => {
     try {
-        const allTrainers = await Trainer.find({}); 
+        const allTrainers = await Trainer.find({}).populate('owner'); 
         res.render('trainers/index.ejs', {
             trainers: allTrainers, 
             user: req.session.user
@@ -30,5 +30,6 @@ router.post('/', async (req, res) => {
         res.redirect('/trainers/new'); 
     }
 }); 
+
 
 module.exports = router; 
