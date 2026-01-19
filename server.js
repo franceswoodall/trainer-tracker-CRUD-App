@@ -24,7 +24,7 @@ app.use(morgan('dev'));
 
 // GET /
 app.get('/', async (req, res) => {
-    res.send('testing testing landing page'); 
+    res.render('index.ejs'); 
 }); 
 
 
