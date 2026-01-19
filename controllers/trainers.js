@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 }); 
 
 router.get('/new', (req, res) => {
-    res.send('route for new trainers add page')
+    res.render('trainers/new.ejs'); 
 }); 
 
 module.exports = router; 

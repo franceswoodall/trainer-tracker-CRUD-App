@@ -30,7 +30,13 @@ app.use(
         saveUninitialized: true,
     })
 ); 
+app.use((req, res, next) => {
+    res.locals.user = req.session.user ? req.session.user: null;
+    next(); 
+});
 
+app.use('/auth', authController); 
+app.use('/trainers', trainersController); 
 // routes
 
 app.get('/', async (req, res) => {
@@ -39,8 +45,6 @@ app.get('/', async (req, res) => {
     }); 
 }); 
 
-app.use('/auth', authController); 
-app.use('/trainers', trainersController); 
 
 // port
 
