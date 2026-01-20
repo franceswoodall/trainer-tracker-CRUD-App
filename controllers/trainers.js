@@ -17,6 +17,12 @@ router.get('/', async (req, res) => {
     }
 }); 
 
+// get my list of trainers
+router.get('/my-trainers', async (req, res) => {
+    const myTrainers = await Trainer.find({ owner: req.session.user._id }); 
+    res.render('trainers/index.ejs', { trainers: myTrainers }); 
+})
+
 // create a new trainer
 router.get('/new', (req, res) => {
     res.render('trainers/new.ejs'); 

@@ -41,7 +41,6 @@ app.use('/trainers', trainersController);
 
 app.get('/', async (req, res) => {
     res.render('index.ejs', {
-        user: req.session.user,  
     }); 
 }); 
 
