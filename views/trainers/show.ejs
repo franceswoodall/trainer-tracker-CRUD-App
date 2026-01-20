@@ -28,7 +28,10 @@
     <% } else  { %>
         <p>These trainers are owned by <%= trainer.owner.username %> </p>
     <% } %>
-
-    <a href="/trainers">Back to All Trainers</a>
+        <% if (user && trainer.owner && trainer.owner._id.equals(user._id)) { %>
+        <a href="/trainers/my-trainers">Back to my Trainers</a>
+    <% } else { %>
+        <a href="/trainers">Back to All Trainers</a>
+    <% } %>
 </body>
 </html>
