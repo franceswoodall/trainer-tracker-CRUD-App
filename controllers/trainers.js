@@ -72,14 +72,14 @@ router.get('/:trainerId/edit', async (req, res) => {
     };
 })
 
-// delete a specific trainer
+// delete a specific trainer (the user must own)
 router.delete('/:trainerId', async (req, res) => {
     try {
         const trainer = await Trainer.findById(req.params.trainerId); 
         if (trainer.owner.equals(req.session.user._id)) {
         
             await trainer.deleteOne(); 
-            res.redirect('/Trainers');
+            res.redirect('/trainers/my-trainers');
         } else {
             res.send('You do not have permission to delete this trainer!'); 
         }
