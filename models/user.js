@@ -1,5 +1,5 @@
 const mongoose = require('mongoose'); 
-const router = require('../controllers/auth');
+
 
 const userSchema = mongoose.Schema({
     username: {
