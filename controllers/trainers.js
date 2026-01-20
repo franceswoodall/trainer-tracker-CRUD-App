@@ -40,9 +40,15 @@ router.get('/new', (req, res) => {
 router.post('/', async (req, res) => {
     try {
         req.body.owner = req.session.user._id; 
-         console.log('new trainer data received', req.body); 
+        console.log('new trainer data received', req.body); 
         await Trainer.create(req.body); 
-        res.redirect('/trainers'); 
+
+        req.session.save((error) => {
+            if (error) {
+                return res.redirect('/trainers/new'); 
+            }
+        res.redirect('/trainers/my-trainers'); 
+        });
     } catch (error) {
         res.redirect('/trainers/new'); 
     }

@@ -10,12 +10,12 @@
     <h1>Trainer Profile: <%= trainer.nickname%></h1>
 
     <ul>
-        <li><Brand:><%= trainer.brand %></li>
-        <li><Model:><%= trainer.model %></li>
-        <li><Terrain Type:><%= trainer.raceType %></li>
-        <li><Price:><%= trainer.price %></li>
-        <li><Owner:><%= trainer.owner ? trainer.owner.username: 'Unknown' %></li>
-        <li><Rating:><%= trainer.rating || 'not rated' %></li>
+        <li>Brand: <%= trainer.brand %></li>
+        <li>Model: <%= trainer.model %></li>
+        <li>Terrain Type: <%= trainer.terrainType %></li>
+        <li>Price: £<%= trainer.price %></li>
+        <li>Owner: <%= trainer.owner ? trainer.owner.username: 'Unknown' %></li>
+        <li>Rating: <%= trainer.rating || 'not rated' %></li>
     </ul>
 
     <% if (user && trainer.owner && trainer.owner._id.equals(user._id)) { %>
