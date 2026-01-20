@@ -18,9 +18,9 @@
         <li>Rating: <%= trainer.rating || 'not rated' %></li>
     </ul>
 
-    <p>Popularity: <%= trainer.favouritedByUsers.length %> Users have favourited this trainer! </p>
+    <p>Popularity: <%= (trainer.favouritedByUsers?.length) || 0 %> Users have favourited this trainer! </p>
     <% if (user) { %>
-        <% const hasFavourited = trainer.favouritedByUsers.some(id => id.equals(user._id)) %>
+        <% const hasFavourited = trainer.favouritedByUsers?.some(id => id.equals(user._id)) || false %>
 
         <% if (hasFavourited) { %>
         <form action="/trainers<%= trainer._id %>/favourite?_method=DELETE" method="POST">

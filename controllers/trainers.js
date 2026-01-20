@@ -60,9 +60,12 @@ router.get('/:trainerId', async (req, res) => {
         const populatedTrainer = await Trainer.findById(req.params.trainerId).populate('owner'); 
         if (!populatedTrainer) return res.redirect('/trainers');
 
-        const userHasFavourited = populatedTrainer.favouritedByUsers?.some((userId) => {
-            return userId.equals(req.session.user._id); 
+        let userHasFavourited = false; 
+        if (req.session.user) {
+            userHasFavourited = populatedTrainer.favouritedByUsers?.some((userId) => {
+                return userId.equals(req.session.user._id);   
         }) || false; 
+    }
 
         res.render('trainers/show.ejs', {
             trainer: populatedTrainer, 
@@ -125,7 +128,7 @@ router.delete('/:trainerId', async (req, res) => {
 router.post('/:trainerId/favourite', async (req, res) => {
     try {
         await Trainer.findByIdAndUpdate(req.params.trainerId, {
-            $push: { favouritedByUsers: req.session.user_id },
+            $push: { favouritedByUsers: req.session.user._id },
         }); 
         res.redirect(`/trainers/${req.params.trainerId}`); 
     } catch (error) {
@@ -134,4 +137,16 @@ router.post('/:trainerId/favourite', async (req, res) => {
     }
 }); 
 
+//unfavouriting a trainer
+router.delete('/:trainerId/favourite', async (req, res) => {
+    try {
+        await Trainer.findByIdAndUpdate(req.params.trainerId, {
+            $pull: { favouritedByUsers: req.session.user._id }, 
+        }); 
+        res.redirect(`/trainers/${req.params.trainerId}`); 
+    } catch (error) {
+        console.log(error); 
+        res.redirect('/'); 
+    }
+}); 
 module.exports = router; 
