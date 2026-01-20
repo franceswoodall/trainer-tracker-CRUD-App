@@ -8,7 +8,7 @@ router.get('/sign-up', (req, res) => {
 }); 
 
 router.post('/sign-up', async (req, res) => {
- 
+    try {
         const userInDatabase = await User.findOne({ username: req.body.username }); 
         if (userInDatabase) {
             return res.send('Username already taken');
@@ -18,16 +18,18 @@ router.post('/sign-up', async (req, res) => {
         }
         const hashedPassword = bcrypt.hashSync(req.body.password, 10); 
         req.body.password = hashedPassword; 
-
         const user = await User.create(req.body); 
-        res.send(`Your account has been created ${user.username}`)
-
+       
         req.session.user = {
             username: user.username, 
             _id: user._id
         }; 
 
         res.redirect('/'); 
+
+    } catch (error) {
+        res.send('Error occurred, please try again.'); 
+    }
 
 }); 
 

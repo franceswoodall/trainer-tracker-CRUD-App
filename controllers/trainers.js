@@ -17,11 +17,20 @@ router.get('/', async (req, res) => {
     }
 }); 
 
-// get my list of trainers
+// get a list of my trainer entries
 router.get('/my-trainers', async (req, res) => {
-    const myTrainers = await Trainer.find({ owner: req.session.user._id }); 
-    res.render('trainers/index.ejs', { trainers: myTrainers }); 
-})
+    try {
+    const myTrainers = await Trainer.find({ owner: req.session.user._id }).populate('owner'); 
+    
+    res.render('trainers/index.ejs', { 
+        trainers: myTrainers, 
+        listType: 'my-trainers'
+    }); 
+} catch (error) {
+    console.log(error); 
+    res.redirect('/');
+}
+}); 
 
 // create a new trainer
 router.get('/new', (req, res) => {

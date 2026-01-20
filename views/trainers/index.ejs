@@ -7,8 +7,11 @@
 </head>
 <body>
      <%- include('../partials/navbar.ejs') %>
-    <h1>Here's a run-down of all trainers!</h1>
-    <a href="/trainers/new">Add a New Trainer</a>
+     <% if (typeof listType !== 'undefined' && listType === 'my-trainers') { %>
+        <h1>Here's a run-down of your trainers!</h1>
+    <% } else { %>
+        <h1>Here's a run-down of all trainers!</h1>
+    <% } %>
 
     <ul>
         <% trainers.forEach(trainer => { %>
