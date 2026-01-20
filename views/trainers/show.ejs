@@ -20,10 +20,10 @@
 
     <p>Popularity: <%= (trainer.favouritedByUsers?.length) || 0 %> Users have favourited this trainer! </p>
     <% if (user) { %>
-        <% const hasFavourited = trainer.favouritedByUsers?.some(id => id.equals(user._id)) || false %>
+        <% if (!trainer.owner._id.equals(user._id)) { %> 
 
-        <% if (hasFavourited) { %>
-        <form action="/trainers<%= trainer._id %>/favourite?_method=DELETE" method="POST">
+        <% if (userHasFavourited) { %>
+        <form action="/trainers/<%= trainer._id %>/favourite?_method=DELETE" method="POST">
             <button type="submit">Unfavourite</button>
         </form>
         <% } else { %> 
@@ -31,6 +31,10 @@
             <button type="submit">Favourite</button>
         </form>
         <% } %>
+
+    <% } else { %>
+        <p>You added this trainer</p>
+    <% } %>
     <% } %>
     
     
