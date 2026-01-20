@@ -1,10 +1,18 @@
 const mongoose = require('mongoose'); 
 
 const trainerSchema = new mongoose.Schema({ 
-    trainerBrand: {
+    nickname: {
+        type: String, 
+        required: true,
+    }, 
+    brand: {
         type: String, 
         required: true,
     },
+    model: {
+        type: String, 
+        required: true, 
+    }, 
     raceType: {
         type: String, 
         required: true,
@@ -18,12 +26,11 @@ const trainerSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User', 
     }, 
-    favouritedByUsers: [
-        {
-            type: mongoose.Schema.Types.ObjectId, 
-            ref: 'User', 
-        }
-    ]
+    starRating: {
+        type: Number, 
+        required: false, 
+        min: 0, 
+    }
 }); 
 
 const Trainer = mongoose.model('Trainer', trainerSchema); 

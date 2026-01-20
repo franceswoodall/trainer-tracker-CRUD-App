@@ -4,6 +4,7 @@ const Trainer = require('../models/trainer.js');
 const User = require('../models/user.js'); 
 const bcrypt = require('bcrypt'); 
 
+// get all trainers
 router.get('/', async (req, res) => {
     try {
         const allTrainers = await Trainer.find({}).populate('owner'); 
@@ -16,6 +17,7 @@ router.get('/', async (req, res) => {
     }
 }); 
 
+// create a new trainer
 router.get('/new', (req, res) => {
     res.render('trainers/new.ejs'); 
 }); 
@@ -31,5 +33,40 @@ router.post('/', async (req, res) => {
     }
 }); 
 
+// get a specific trainer
+router.get('/:trainerId', async (req, res) => {
+    try {
+        const populatedTrainer = await Trainer.findById(req.params.trainerId).populate('owner'); 
+        if (!populatedTrainer) return res.redirect('/trainers');
+
+        const userHasFavourited = populatedTrainer.favouritedByUsers?.some((userId) => {
+            return userId.equals(req.session.user._id); 
+        }) || false; 
+
+        res.render('trainers/show.ejs', {
+            trainer: populatedTrainer, 
+            userHasFavourited: userHasFavourited, 
+        }); 
+        
+    } catch (error) {
+        console.log(error); 
+        res.redirect('/'); 
+    }
+}); 
+
+// edit the trainer 
+router.get('/:trainerId/edit', async (req, res) => {
+    try {
+        const currentTrainer = await Trainer.findById(req.params.trainerId); 
+        res.render('trainers/edit.ejs', {
+            trainer: currentTrainer, 
+        })
+    } catch (error) {
+        res.redirect('/');
+    };
+})
+
+
+// delete a specific trainer
 
 module.exports = router; 

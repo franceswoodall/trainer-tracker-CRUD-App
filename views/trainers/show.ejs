@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= trainer.nickname %></title>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+    <h1>Trainer Profile: <%= trainer.nickname%></h1>
+
+    <ul>
+        <li><%= trainer.brand %></li>
+        <li><%= trainer.model %></li>
+        <li><%= trainer.model %></li>
+        <li><%= trainer.raceType %></li>
+        <li><%= trainer.price %></li>
+        <li><%= trainer.owner %></li>
+        <li><%= trainer.starRating %></li>
+    </ul>
+
+    <a href="/trainers">Back to All Trainers</a>
+</body>
+</html>

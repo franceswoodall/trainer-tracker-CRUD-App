@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit <%= trainer.name %>/title>
 </head>
-    <%- include('../partials/navbar.ejs') %>
 <body>
+    <%- include('../partials/navbar.ejs') %>
     <h1>Edit my trainer entry</h1>
 
     <form action="trainers/<%= trainers._id%>?_method=PUT" method="POST">
