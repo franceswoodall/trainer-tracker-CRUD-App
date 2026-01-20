@@ -26,7 +26,7 @@ const trainerSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User', 
     }, 
-    starRating: {
+    rating: {
         type: Number, 
         required: false, 
         min: 0, 

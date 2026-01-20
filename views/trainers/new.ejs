@@ -9,14 +9,23 @@
     <%- include('../partials/navbar.ejs') %>
     <h1>Add New Trainer</h1>
     <form action="/trainers" method="POST">
-        <label for="trainerBrand">Trainer Brand</label>
-        <input type="text" name="trainerBrand" id="trainerBrand" />
+        <label for="nickname">Trainer Nickname</label>
+        <input type="text" name="nickname" id="nickname" />
+
+        <label for="brand">Trainer Brand</label>
+        <input type="text" name="brand" id="brand" />
+
+        <label for="model">Trainer Model</label>
+        <input type="model" name="model" id="model" />
 
         <label for="raceType">Type of running</label>
         <input type="text" name="raceType" id="raceType" />
 
         <label for="price">Price</label>
         <input type="number" name="price" id="price" min="0" />
+
+        <label for="rating">Rating</label>
+        <input type="number" name="rating" id="rating" min="0" />
         
         <button type="submit">Add Trainer</button>
     </form>
