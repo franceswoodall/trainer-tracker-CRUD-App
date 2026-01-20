@@ -13,7 +13,7 @@ const trainerSchema = new mongoose.Schema({
         type: String, 
         required: true, 
     }, 
-    raceType: {
+    terrainType: {
         type: String, 
         required: true,
     },

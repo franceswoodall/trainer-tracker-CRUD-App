@@ -10,24 +10,23 @@
     <h1>Trainer Profile: <%= trainer.nickname%></h1>
 
     <ul>
-        <li><%= trainer.brand %></li>
-        <li><%= trainer.model %></li>
-        <li><%= trainer.model %></li>
-        <li><%= trainer.raceType %></li>
-        <li><%= trainer.price %></li>
-        <li><%= trainer.owner.username %></li>
-        <li><%= trainer.starRating %></li>
+        <li><Brand:><%= trainer.brand %></li>
+        <li><Model:><%= trainer.model %></li>
+        <li><Terrain Type:><%= trainer.raceType %></li>
+        <li><Price:><%= trainer.price %></li>
+        <li><Owner:><%= trainer.owner ? trainer.owner.username: 'Unknown' %></li>
+        <li><Rating:><%= trainer.rating || 'not rated' %></li>
     </ul>
 
-    <% if (trainer.owner._id.equals(user._id)) { %>
+    <% if (user && trainer.owner && trainer.owner._id.equals(user._id)) { %>
         <p>You own this trainer</p>
         <form action="/trainers/<%=trainer._id%>?_method=DELETE" method="POST">
             <button type="submit">Delete this trainer</button>
         </form>
         <br>
         <a href="/trainers/<%= trainer._id %>/edit">Edit Trainer</a>
-    <% } else { %>
-        <p>You don't own this trainer, <%= trainer.owner.username %> does! </p>
+    <% } else  { %>
+        <p>These trainers are owned by <%= trainer.owner.username %> </p>
     <% } %>
 
     <a href="/trainers">Back to All Trainers</a>
