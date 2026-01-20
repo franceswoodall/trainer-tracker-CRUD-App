@@ -121,4 +121,17 @@ router.delete('/:trainerId', async (req, res) => {
     }
 })
 
+//favouriting a trainer 
+router.post('/:trainerId/favourite', async (req, res) => {
+    try {
+        await Trainer.findByIdAndUpdate(req.params.trainerId, {
+            $push: { favouritedByUsers: req.session.user_id },
+        }); 
+        res.redirect(`/trainers/${req.params.trainerId}`); 
+    } catch (error) {
+        console.log(error); 
+        res.redirect('/'); 
+    }
+}); 
+
 module.exports = router; 

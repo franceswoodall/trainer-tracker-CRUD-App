@@ -26,6 +26,12 @@ const trainerSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User', 
     }, 
+    favoritedByUsers: [
+        {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User', 
+        }
+    ], 
     rating: {
         type: Number, 
         required: false, 
