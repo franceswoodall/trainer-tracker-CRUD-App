@@ -44,6 +44,19 @@ app.get('/', async (req, res) => {
     }); 
 }); 
 
+// community route 
+app.get('/community', async (req, res) => {
+    if (!req.session.user) {
+        return res.redirect('/auth/sign-in'); 
+    }
+    try {
+        const allUsers = await User.find({}, 'username');
+        res.render('/community.ejs', { communityUsers: allUsers }); 
+    } catch (error) {
+        console.log(error); 
+        res.redirect('/'); 
+    }
+}); 
 
 // port
 

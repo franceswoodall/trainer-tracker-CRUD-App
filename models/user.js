@@ -12,16 +12,6 @@ const userSchema = mongoose.Schema({
     }, 
 }); 
 
-router.get('/community', async (req, res) => {
-    try {
-        const allUsers = await User.find({}, 'username');
-        res.render('community.ejs', { communityUsers: allUsers }); 
-    } catch (error) {
-        console.log(error); 
-        res.redirect('/'); 
-    }
-}); 
-
 const User = mongoose.model('User', userSchema); 
 
 module.exports = User; 
