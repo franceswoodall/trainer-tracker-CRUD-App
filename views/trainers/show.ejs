@@ -18,6 +18,24 @@
         <li>Rating: <%= trainer.rating || 'not rated' %></li>
     </ul>
 
+    <p>Popularity: <%= trainer.favouritedByUsers.length %> Users have favourited this trainer! </p>
+    <% if (user) { %>
+        <% const hasFavourited = trainer.favouritedByUsers.some(id => id.equals(user._id)) %>
+
+        <% if (hasFavourited) { %>
+        <form action="/trainers<%= trainer._id %>/favourite?_method=DELETE" method="POST">
+            <button type="submit">Unfavourite</button>
+        </form>
+        <% } else { %> 
+        <form action="/trainers/<%= trainer._id %>/favourite" method="POST">
+            <button type="submit">Favourite</button>
+        </form>
+        <% } %>
+    <% } %>
+    
+    
+    
+    
     <% if (user && trainer.owner && trainer.owner._id.equals(user._id)) { %>
         <p>You own this trainer</p>
         <form action="/trainers/<%=trainer._id%>?_method=DELETE" method="POST">
