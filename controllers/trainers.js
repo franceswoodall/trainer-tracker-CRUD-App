@@ -47,7 +47,7 @@ router.get('/:trainerId', async (req, res) => {
             trainer: populatedTrainer, 
             userHasFavourited: userHasFavourited, 
         }); 
-        
+
     } catch (error) {
         console.log(error); 
         res.redirect('/'); 
@@ -66,7 +66,21 @@ router.get('/:trainerId/edit', async (req, res) => {
     };
 })
 
-
 // delete a specific trainer
+router.delete('/:trainerId', async (req, res) => {
+    try {
+        const trainer = await Trainer.findById(req.params.trainerId); 
+        if (trainer.owner.equals(req.session.user._id)) {
+        
+            await trainer.deleteOne(); 
+            res.redirect('/Trainers');
+        } else {
+            res.send('You do not have permission to delete this trainer!'); 
+        }
+    } catch (error) {
+        console.log(error); 
+        res.redirect('/'); 
+    }
+})
 
 module.exports = router; 

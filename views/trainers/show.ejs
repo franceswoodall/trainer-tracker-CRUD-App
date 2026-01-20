@@ -15,9 +15,20 @@
         <li><%= trainer.model %></li>
         <li><%= trainer.raceType %></li>
         <li><%= trainer.price %></li>
-        <li><%= trainer.owner %></li>
+        <li><%= trainer.owner.username %></li>
         <li><%= trainer.starRating %></li>
     </ul>
+
+    <% if (trainer.owner._id.equals(user._id)) { %>
+        <p>You own this trainer</p>
+        <form action="/trainers/<%=trainer._id%>?_method=DELETE" method="POST">
+            <button type="submit">Delete this trainer</button>
+        </form>
+        <br>
+        <a href="/trainers/<%= trainer._id %>/edit">Edit Trainer</a>
+    <% } else { %>
+        <p>You don't own this trainer, <%= trainer.owner.username %> does! </p>
+    <% } %>
 
     <a href="/trainers">Back to All Trainers</a>
 </body>
