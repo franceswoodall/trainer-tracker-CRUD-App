@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit <%= trainer.name %>/title>
+    <title>Edit <%= trainer.name %></title>
 </head>
 <body>
     <%- include('../partials/navbar.ejs') %>
     <h1>Edit my trainer entry</h1>
 
-    <form action="trainers/<%= trainers._id%>?_method=PUT" method="POST">
+    <form action="/trainers/<%= trainer._id%>?_method=PUT" method="POST">
         <label for="nickname">Trainer Nickname</label>
-        <input type="text" name="nickname" id="nickname" />
+        <input type="text" name="nickname" id="nickname" value="<%= trainer.nickname %>" />
 
         <label for="brand">Trainer Brand</label>
-        <input type="text" name="brand" id="brand" />
+        <input type="text" name="brand" id="brand" value="<%= trainer.brand %>"/>
 
         <label for="model">Trainer Model</label>
-        <input type="model" name="model" id="model" />
+        <input type="text" name="model" id="model" value="<%= trainer.model %>" />
 
-        <label for="raceType">Type of running</label>
-        <input type="text" name="raceType" id="raceType" />
+        <label for="terrainType">Terrain Type</label>
+        <input type="text" name="terrainType" id="terrainType" value="<%= trainer.terrainType%>" />
 
         <label for="price">Price</label>
-        <input type="number" name="price" id="price" min="0" />
+        <input type="number" name="price" id="price" min="0" value="<%= trainer.price%>" />
 
         <label for="rating">Rating</label>
-        <input type="number" name="rating" id="rating" min="0" max="5"/>
+        <input type="number" name="rating" id="rating" min="0" max="5" value="<%= trainer.rating %>"/>
     
+        <button type="submit">Update Trainer</button>
     </form>
 </body>
 </html>
