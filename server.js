@@ -11,6 +11,7 @@ const session = require('express-session');
 
 const port = process.env.PORT ? process.env.PORT : '3000'; 
 
+const User = require('./models/user.js')
 const authController = require('./controllers/auth.js'); 
 const trainersController = require('./controllers/trainers.js'); 
 
@@ -51,7 +52,7 @@ app.get('/community', async (req, res) => {
     }
     try {
         const allUsers = await User.find({}, 'username');
-        res.render('/community.ejs', { communityUsers: allUsers }); 
+        res.render('community.ejs', { communityUsers: allUsers }); 
     } catch (error) {
         console.log(error); 
         res.redirect('/'); 
