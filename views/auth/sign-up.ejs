@@ -3,37 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Join | TT </title>
 </head>
 <body>
-    <% include(../partials/navbar.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
 
     <div class="page-container">
-    <h1>Join TrainerTrack</h1>
-    <form action="/auth/sign-up" method="POST">
-        <div class="form-fields">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" class="form-input"/>
-        </div>
+        <div class="page-container">
+            <h1>Join TrainerTrack</h1>
 
-        <div class="form-fields">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" id="password" class="form-input"/>
-        </div>
+        <form action="/auth/sign-up" method="POST">
+            <div class="form-fields">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" class="form-input"/>
+            </div>
 
-        <div class="form-fields">
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" name="confirmPassword" id="confirmPassword" class="form-input">
-        </div>
-      
-        <div class="form-actions">
-            <button type="submit" class="auth-btn">Create Account</button>
-        </div>
-    </form>
+            <div class="form-fields">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-input"/>
+            </div>
+
+            <div class="form-fields">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" class="form-input">
+            </div>
+        
+            <div class="form-actions">
+                <button type="submit" class="auth-btn">Create Account</button>
+            </div>
+        </form>
 
 
-    <footer class="bottom-banner">
-        <div class="footer-logo">T<span>T</span></div>
-    </footer>
+        <footer class="bottom-banner">
+            <div class="footer-logo">T<span>T</span></div>
+        </footer>
 </body>
 </html>
