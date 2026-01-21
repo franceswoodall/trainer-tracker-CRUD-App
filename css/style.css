@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-* {box-sizing: border box; }
+* {box-sizing: border-box; }
 
 body {
     background-color: #050505; 
@@ -14,12 +14,20 @@ h1, h2, h3, .nav-logo, .auth-btn, .nav-links a {
     font-family: 'Rubik', sans-serif; 
     text-transform: uppercase; 
     letter-spacing: 1px; 
+    color: #ffffff; 
 }
 
 .trainer-tracker-navbar {
     background-color: #050505;
-    border-bottom: 2px solid #ff6200; 
+    border-top: 8px solid #ff6200;
+    border-bottom: none; 
     padding: 1rem 2rem; 
+    width: 100%; 
+}
+
+.nav-container, .nav-links, .nav-auth {
+    display: flex;
+    align-items: center;
 }
 
 .nav-container {
@@ -31,9 +39,19 @@ h1, h2, h3, .nav-logo, .auth-btn, .nav-links a {
     margin: 0 auto; 
 }
 
+.trainer-tracker-navbar {
+    background-color: #050505; 
+    border-bottom: 2px solid #ff6200; 
+    padding: 1rem 2rem;
+}
 
+.nav-logo {
+    color: #ff6200; 
+    font-size: 1.8rem; 
+    font-style: italic; 
+}
 
-.nav-links {
+.nav-links a {
     display: flex; 
     list-style: none; 
     gap: 2rem;
@@ -41,9 +59,28 @@ h1, h2, h3, .nav-logo, .auth-btn, .nav-links a {
     padding: 0;
 }
 
+.nav-links a:hover, .auth-btn:hover {
+    color: #ff6200; 
+}
+
 .nav-auth {
     display: flex; 
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 }
 
+.nav-auth a {
+    background-color: #ff6200;
+    color: #ffffff;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2rem; 
+    border-radius: 50px;
+    font-family: 'Rubik', sans-serif; 
+    font-weight: 700; 
+    text-decoration: none; 
+    text-transform: lowercase; 
+    font-size: 1rem; 
+    line-height: 1; 
+}
