@@ -9,11 +9,44 @@ body {
 .trainer-tracker-navbar {
     background-color: #050505;
     border-bottom: 2px solid #ff6200; 
-    padding 1rem 2rem; 
+    padding: 1rem 2rem; 
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
-    align
+    align-items: center; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.nav-logo {
+    font-family: 'Bebas Neue', sans-serif; 
+    color: #ff6200; 
+    text-decoration: none;
+    font-size: 1.8rem; 
+    font-style: italic;
+}
+
+.nav-links {
+    display: flex; 
+    list-style: none; 
+    gap: 2rem;
+    margin: 0; 
+    padding: 0;
+}
+
+.nav-auth {
+    display: flex; 
+    align-items: center;
+    gap: 1rem;
+}
+
+.auth-btn {
+    background-color: #ff6200; 
+    color: #000000;
+    padding: 0.5 rem 1.2rem;
+    font-family: 'Bebas Neue', sans-serif; 
+    text-decoration: none;
+    font-weight: bold; 
 }
