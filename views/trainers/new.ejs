@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/style.css">
     <title>Add New Trainer</title>
 </head>
-  <%- include('../partials/app-shell') %>
 <body>
     <%- include('../partials/navbar.ejs') %>
 
@@ -15,6 +14,7 @@
 
     <form action="/trainers" method="POST" class="trainer-form-wrapper">
         
+    <div class="form-grid">    
     <div class="form-fields">
         <label for="nickname" class="form-label">Trainer Nickname</label>
         <input type="text" name="nickname" id="nickname" class="form-input" />
@@ -44,9 +44,16 @@
         <label for="rating" class="form-label">Rating</label>
         <input type="number" name="rating" id="rating" min="0" max="5" class="form-input"/>
     </div>
+    </div>
 
+    <div class="form-actions">
         <button type="submit" class="auth-btn">Add Trainer</button>
+    </div>
     </form>
     </div>
+
+    <footer class="bottom-banner">
+        <p>TrainerTracker</p>
+    </footer>
 </body>
 </html>
