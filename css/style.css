@@ -167,6 +167,7 @@ h1 {
     gap: 1.5rem; 
 }
 
+/* footer */
 .footer-logo {
     font-family: 'Rubik', sans-serif; 
     font-size: 2.8rem;
@@ -286,4 +287,26 @@ h1 {
 
 .dashboard-card:hover .card-link {
     letter-spacing: 2.5px;
+}
+
+.nav-brand {
+    font-family: 'Rubik', sans-serif; 
+    font-size: 1.5rem; 
+    font-weight: 800; 
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffffff; 
+    font-style: italic; 
+    letter-spacing: -1px; 
+    display: flex; 
+    align-items: center;
+}
+
+.nav-brand span {
+    color: #ff6200; 
+    margin-left: 2px; 
+}
+
+.nav-brand:hover {
+    opacity: 0.9;
 }
