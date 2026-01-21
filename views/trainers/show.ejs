@@ -20,39 +20,33 @@
 
     <p>Popularity: <%= (trainer.favouritedByUsers?.length) || 0 %> Users have favourited this trainer! </p>
     <% if (user) { %>
-        <% if (!trainer.owner._id.equals(user._id)) { %> 
+            <% if (trainer.owner && trainer.owner._id.equals(user._id)) { %>
+            <p>You own this trainer</p>
+            
+            <form action="/trainers/<%= trainer._id %>/favourite?_method=DELETE" method="POST">
+                <button type="submit">Delete trainer</button>
+            </form>
+        <a href="/trainers/<%= trainer._id %>/edit">Edit Trainer</a>
+        <a href="/trainers/my-trainers">Back to my Trainers</a>
 
-        <% if (userHasFavourited) { %>
-        <form action="/trainers/<%= trainer._id %>/favourite?_method=DELETE" method="POST">
-            <button type="submit">Unfavourite</button>
-        </form>
         <% } else { %> 
-        <form action="/trainers/<%= trainer._id %>/favourite" method="POST">
-            <button type="submit">Favourite</button>
-        </form>
+            <p>These trainers are owned by <%= trainer.owner? trainer.owner.username: 'Unknown' %></p>
+        
+        <% if (userHasFavourited) { %>
+            <form action="/trainers/<%= trainer._id %>/favourite?_method=DELETE" method="POST">
+                <button type="submit">Unfavourite</button>
+            </form>
+
+        <% } else { %>
+            <form action="/trainers/<%= trainer._id %>/favourite" method="POST">
+                <button type="submit">Favourite</button>
+            </form>
         <% } %>
 
+        <a href="/trainers">Back to All Trainers</a>
+        <% } %>
     <% } else { %>
-        <p>You added this trainer</p>
-    <% } %>
-    <% } %>
-    
-    
-    
-    
-    <% if (user && trainer.owner && trainer.owner._id.equals(user._id)) { %>
-        <p>You own this trainer</p>
-        <form action="/trainers/<%=trainer._id%>?_method=DELETE" method="POST">
-            <button type="submit">Delete this trainer</button>
-        </form>
-        <br>
-        <a href="/trainers/<%= trainer._id %>/edit">Edit Trainer</a>
-    <% } else  { %>
-        <p>These trainers are owned by <%= trainer.owner.username %> </p>
-    <% } %>
-        <% if (user && trainer.owner && trainer.owner._id.equals(user._id)) { %>
-        <a href="/trainers/my-trainers">Back to my Trainers</a>
-    <% } else { %>
+        <p>Log in to favourite this trainer</p>
         <a href="/trainers">Back to All Trainers</a>
     <% } %>
 </body>
