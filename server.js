@@ -38,6 +38,8 @@ app.use((req, res, next) => {
 
 app.use('/auth', authController); 
 app.use('/trainers', trainersController); 
+app.use(express.static('CSS')); 
+
 // routes
 
 app.get('/', async (req, res) => {
