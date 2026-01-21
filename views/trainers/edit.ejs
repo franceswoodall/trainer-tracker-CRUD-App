@@ -13,10 +13,13 @@
     <h1>Edit my trainer entry</h1>
 
     <form action="/trainers/<%= trainer._id%>?_method=PUT" method="POST" class="trainer-form-wrapper">
-        <label for="nickname">Trainer Nickname</label>
-        <input type="text" name="nickname" id="nickname" value="<%= trainer.nickname %>" />
-
+        
         <div class="form-grid">
+            <div class="form-fields">
+        <label for="nickname" class="form-label">Trainer Nickname</label>
+        <input type="text" name="nickname" id="nickname" class="form-input" value="<%= trainer.nickname %>" />
+            </div>
+        
             <div class="form-fields">
         <label for="brand">Trainer Brand</label>
         <input type="text" name="brand" id="brand" class="form-input" value="<%= trainer.brand %>"/>
@@ -51,7 +54,7 @@
 
  <footer class="bottom-banner">
         <div class="footer-logo">
-        <p>TT</p>
+        T<span>T</span>
         </div>
     </footer>
 </body>
