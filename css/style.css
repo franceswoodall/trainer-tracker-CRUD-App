@@ -152,7 +152,6 @@ h1 {
 }
 
 .bottom-banner {
-    background: linear-gradient(to bottom, #121212, #0a0a0a); 
     background-color: #050505;
     border-top: 2px solid #ff6200;
     padding: 4rem 1rem;
@@ -170,7 +169,7 @@ h1 {
 
 .footer-logo {
     font-family: 'Rubik', sans-serif; 
-    font-size: 1.5rem;
+    font-size: 2.8rem;
     font-weight: 900; 
     text-transform: uppercase;
     letter-spacing: 2px; 
@@ -179,12 +178,12 @@ h1 {
     display: flex; 
     align-items: center;
     justify-content: center;
-    height: 120px; 
-    width: 120px; 
+    height: 130px; 
+    width: 130px; 
     border: 3px solid #ff6200; 
     border-radius: 50%;
+    margin: 3rem 0; 
     padding: 10px; 
-    box-shadow: 0 0 15px rgba(225, 98, 0, 0.2); 
 }
 
 .auth-card {
