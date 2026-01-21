@@ -4,16 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>Home Page</title>
+    <title>Dashboard | TT</title>
 </head>
 <body>
     <%- include('./partials/navbar.ejs') %>
-    <% if (user) { %>
-    <h1>Welcome <%= user.username %></h1>
+
+    <div class="page-container">
+
+        <% if (user) { %>
+            <header class="dashboard-header"> 
+            <h1>Welcome <%= user.username %></h1>
+        <p>Select a destination</p>
+        </header> 
+
+    <div class="dashboard-grid"> 
+        <a href="/trainers/my-trainers" class="dashboard-card">
+            <div class="card-icon">Add Icon (trainer)</div>
+            <h3>My Trainers</h3>
+            <p>Manage your collection</p>
+            <div class="card-link">View</div>
+        </a>
+
+        <a href="/trainers" class="dashboard-card">
+            <div class="card-icon">Add Icon (world)</div>
+            <h3>All Trainers</h3>
+            <p>Explore all trainers</p>
+            <div class="card-link">Explore</div>
+        </a>
+
+        <a href="/community" class="dashboard-card">
+            <div class="card-icon">Add icon (two heads)</div>
+            <h3>Community</h3>
+            <p>Connect and share with others</p>
+            <div class="card-link">Join Discussion</div>
+        </a>
+    </div>
+
     <% } else { %>
-    <h1>Welcome to TrainerTrack</h1>
-    <p>We track our trainers and share with our community so you can hit the ground running</p> 
-    <p>Sign in to manage your personal collection, or view the full index</p>
+         <header class="dashboard-header">
+            <h1>TrainerTrack</h1>
+            <p>The platform for running enthusiasts to talk trainers</p>
+        </header>
+
+    <div class="dashboard-grid">
+        <a href="/auth/sign-in" class="dashboard-card">
+            <div class="card-icon">(key icon)</div>
+            <h3>Sign In</h3>
+            <p>Log back in to access your trainers</p>
+            <div class="card-link">Log In</div>
+        </a>
+
+
+        <a href="/auth/sign-up" class="dashboard-card">
+            <div class="card-icon">lightning bolt icon</div>
+            <h3>Join Now</h3>
+            <p>Create an account to join our community and hit the ground running!</p>
+            <div class="card-link">Join</div>
+        </a>
+
+        <a href="/trainers" class="dashboard-card">
+            <div class="card-icon">Magnify icon</div>
+            <h3>Browse Index</h3>
+            <p>View the trainer index without an account</p>
+            <div class="card-link">View</div>
+        </a>
+    </div>
     <% } %>
+    </div>
+
+    <footer class="bottom-banner">
+        <div class="footer-logo">
+         T<span>T</span>
+        </div>
+    </footer>
 </body>
 </html>
