@@ -7,27 +7,44 @@
 </head>
 <body>
     <%- include('../partials/navbar.ejs') %>
+
+    <div class="page-container">
     <h1>Add New Trainer</h1>
-    <form action="/trainers" method="POST">
+
+    <form action="/trainers" method="POST" class="trainer-form-wrapper">
+        
+    <div class="form-fields">
         <label for="nickname">Trainer Nickname</label>
         <input type="text" name="nickname" id="nickname" />
-
+    </div>
+        
+    <div class="form-fields">
         <label for="brand">Trainer Brand</label>
         <input type="text" name="brand" id="brand" />
+    </div>
 
+    <div class="form-fields">
         <label for="model">Trainer Model</label>
         <input type="text" name="model" id="model" />
+    </div>
 
+    <div class="form-fields">
         <label for="terrainType">Terrain Type</label>
         <input type="text" name="terrainType" id="terrainType" />
+    </div>
 
+    <div class="form-fields">
         <label for="price">Price</label>
         <input type="number" name="price" id="price" min="0" />
+    </div>
 
+    <div class="form-fields">
         <label for="rating">Rating</label>
         <input type="number" name="rating" id="rating" min="0" max="5"/>
-        
-        <button type="submit">Add Trainer</button>
+    </div>
+
+        <button type="submit" class="auth-btn">Add Trainer</button>
     </form>
+    </div>
 </body>
 </html>
