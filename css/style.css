@@ -238,6 +238,7 @@ h1 {
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    height: 100%; 
     align-items: center;
 }
 
@@ -261,11 +262,11 @@ h1 {
     color: #888; 
     font-size: 0.9rem;
     line-height: 1.5; 
-    margin-bottom: 1rem;
+    flex-grow: 1; 
+    margin-bottom: 1.5rem; 
 }
 
 .card-link {
-    margin-top: 1.5rem;
     color: #ff6200;
     font-weight: 700;
     text-transform: lowercase;
@@ -273,6 +274,6 @@ h1 {
     letter-spacing: 1px;
 }
 
-.dash-card:hover .card-link {
+.dashboard-card:hover .card-link {
     letter-spacing: 2.5px;
 }
