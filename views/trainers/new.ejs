@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Add New Trainer</title>
 </head>
+  <%- include('../partials/app-shell') %>
 <body>
     <%- include('../partials/navbar.ejs') %>
 
@@ -14,33 +16,33 @@
     <form action="/trainers" method="POST" class="trainer-form-wrapper">
         
     <div class="form-fields">
-        <label for="nickname">Trainer Nickname</label>
-        <input type="text" name="nickname" id="nickname" />
+        <label for="nickname" class="form-label">Trainer Nickname</label>
+        <input type="text" name="nickname" id="nickname" class="form-input" />
     </div>
         
     <div class="form-fields">
-        <label for="brand">Trainer Brand</label>
-        <input type="text" name="brand" id="brand" />
+        <label for="brand" class="form-label">Trainer Brand</label>
+        <input type="text" name="brand" id="brand" class="form-input"/>
     </div>
 
     <div class="form-fields">
-        <label for="model">Trainer Model</label>
-        <input type="text" name="model" id="model" />
+        <label for="model" class="form-label">Trainer Model</label>
+        <input type="text" name="model" id="model" class="form-input"/>
     </div>
 
     <div class="form-fields">
-        <label for="terrainType">Terrain Type</label>
-        <input type="text" name="terrainType" id="terrainType" />
+        <label for="terrainType" class="form-label">Terrain Type</label>
+        <input type="text" name="terrainType" id="terrainType" class="form-input"/>
     </div>
 
     <div class="form-fields">
-        <label for="price">Price</label>
-        <input type="number" name="price" id="price" min="0" />
+        <label for="price" class="form-label">Price</label>
+        <input type="number" name="price" id="price" min="0" class="form-input"/>
     </div>
 
     <div class="form-fields">
-        <label for="rating">Rating</label>
-        <input type="number" name="rating" id="rating" min="0" max="5"/>
+        <label for="rating" class="form-label">Rating</label>
+        <input type="number" name="rating" id="rating" min="0" max="5" class="form-input"/>
     </div>
 
         <button type="submit" class="auth-btn">Add Trainer</button>
