@@ -26,7 +26,7 @@ h1, h2, h3, .nav-logo, .auth-btn, .nav-links a {
     justify-content: space-between;
     align-items: center; 
     width: 100%; 
-    max-width: 1300px; 
+    max-width: 1400px; 
     margin: 0 auto; 
 }
 
@@ -34,6 +34,10 @@ h1, h2, h3, .nav-logo, .auth-btn, .nav-links a {
     background-color: #050505; 
     border-bottom: 2px solid #ff6200; 
     padding: 1rem 2rem;
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    width: 100%
 }
 
 .nav-logo {
@@ -42,12 +46,19 @@ h1, h2, h3, .nav-logo, .auth-btn, .nav-links a {
     font-style: italic; 
 }
 
-.nav-links a {
+.nav-links {
     display: flex; 
     list-style: none; 
-    gap: 2rem;
+    gap: 3rem;
     margin: 0; 
     padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600; 
+    text-transform: uppercase;
 }
 
 .nav-links a:hover, .auth-btn:hover {
