@@ -4,22 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>All Trainers</title>
+    <title>Trainer Index || TT</title>
 </head>
 <body>
      <%- include('../partials/navbar.ejs') %>
+
+     <div class="page-container">
+        <header class="index-header">
      <% if (typeof listType !== 'undefined' && listType === 'my-trainers') { %>
         <h1>Here's a run-down of your trainers!</h1>
     <% } else { %>
         <h1>Here's a run-down of all trainers!</h1>
     <% } %>
+    </header>
 
-    <ul>
+    <div class="trainer-grid">
         <% trainers.forEach(trainer => { %>
-            <li>Trainer owned by <%= trainer.owner.username %></li>
-            <a href="/trainers/<%= trainer._id %>">View more details</a>
+            <div class="trainer-card">
+                <div class="card-brand"><%= trainer.brand %></div>
+                <h3 class="card-nickname"><%= trainer.nickname %></h3>
+
+            <div class="card-meta">
+                <div>Owner: <%= trainer.owner.username %></div>
+            </div>
+
+            <div class="card-footer">
+                <a href="/trainers/<%= trainer._id %>" class="view-btn">View Details</a>
+            </div>
+        </div>
+
         <% }); %>
-    </ul>
+    </div> 
 
 </body>
 </html>
