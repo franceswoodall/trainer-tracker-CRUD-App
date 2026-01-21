@@ -4,32 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>Edit <%= trainer.name %></title>
+    <title>Edit <%= trainer.nickname %></title>
 </head>
 <body>
     <%- include('../partials/navbar.ejs') %>
+
+    <div class="page-container">
     <h1>Edit my trainer entry</h1>
 
-    <form action="/trainers/<%= trainer._id%>?_method=PUT" method="POST">
+    <form action="/trainers/<%= trainer._id%>?_method=PUT" method="POST" class="trainer-form-wrapper">
         <label for="nickname">Trainer Nickname</label>
         <input type="text" name="nickname" id="nickname" value="<%= trainer.nickname %>" />
 
+        <div class="form-grid">
+            <div class="form-fields">
         <label for="brand">Trainer Brand</label>
-        <input type="text" name="brand" id="brand" value="<%= trainer.brand %>"/>
+        <input type="text" name="brand" id="brand" class="form-input" value="<%= trainer.brand %>"/>
+            </div>
 
+            <div class="form-fields">
         <label for="model">Trainer Model</label>
-        <input type="text" name="model" id="model" value="<%= trainer.model %>" />
+        <input type="text" name="model" id="model" class="form-input" value="<%= trainer.model %>" />
+            </div>
 
+              <div class="form-fields">
         <label for="terrainType">Terrain Type</label>
-        <input type="text" name="terrainType" id="terrainType" value="<%= trainer.terrainType%>" />
+        <input type="text" name="terrainType" id="terrainType" class="form-input" value="<%= trainer.terrainType%>" />
+            </div>
 
+             <div class="form-fields">
         <label for="price">Price</label>
-        <input type="number" name="price" id="price" min="0" value="<%= trainer.price%>" />
+        <input type="number" name="price" id="price" min="0" class="form-input" value="<%= trainer.price%>" />
+            </div>
 
+             <div class="form-fields">
         <label for="rating">Rating</label>
-        <input type="number" name="rating" id="rating" min="0" max="5" value="<%= trainer.rating %>"/>
-    
-        <button type="submit">Update Trainer</button>
+        <input type="number" name="rating" id="rating" min="0" max="5" class="form-input" value="<%= trainer.rating %>"/>
+            </div>
+        </div>
+
+        <div class="form-actions"> 
+        <button type="submit" class="auth-btn">Update Trainer</button>
+        </div>
     </form>
+</div>
+
+ <footer class="bottom-banner">
+        <div class="footer-logo">
+        <p>TT</p>
+        </div>
+    </footer>
 </body>
 </html>
