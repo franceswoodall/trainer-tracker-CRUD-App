@@ -3,16 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <link rel="stylesheet" href="/style.css">
+    <title>Sign In | TT</title>
 </head>
 <body>
-    <h1>Sign In</h1>
+    <%- include('../partials/navbar.ejs') %>
+
+    <div class="page-container">
+        <div class="auth-card">
+        <h1>Sign In</h1>
+
     <form action="/auth/sign-in" method="POST">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" />
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" />
-        <button type="submit">Sign In</button>
-    </form>
+        <div class="form-fields">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" name="username" id="username" class="form-input" />
+        </div>
+    
+        <div class="form-fields">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-input" />
+        </div>
+
+        <div class="form-actions" style="margin-top: 2rem;">
+            <button type="submit" class="auth-btn">Sign In</button>
+        </div>
+        </form>
+     </div>
+    </div>
+
+    <footer class="bottom-banner">
+        <div class="footer-logo">T<span>T</span></div>
+    </footer>
+
 </body>
 </html>

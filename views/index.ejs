@@ -9,9 +9,9 @@
 <body>
     <%- include('./partials/navbar.ejs') %>
     <% if (user) { %>
-    <h1>Welcome to TrainerTracker <%= user.username %></h1>
+    <h1>Welcome <%= user.username %></h1>
     <% } else { %>
-    <h1>Welcome to TrainerTracker</h1>
+    <h1>Welcome to TrainerTrack</h1>
     <p>We track our trainers and share with our community so you can hit the ground running</p> 
     <p>Sign in to manage your personal collection, or view the full index</p>
     <% } %>
