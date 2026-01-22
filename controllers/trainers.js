@@ -24,7 +24,8 @@ router.get('/my-trainers', async (req, res) => {
     
     res.render('trainers/index.ejs', { 
         trainers: myTrainers, 
-        listType: 'my-trainers'
+        listType: 'my-trainers', 
+        user: req.session.user, 
     }); 
 } catch (error) {
     console.log(error); 

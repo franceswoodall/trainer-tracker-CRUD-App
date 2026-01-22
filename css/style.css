@@ -486,6 +486,18 @@ h1 {
     z-index: 10; 
 }
 
+.form-actions {
+    display: flex; 
+    justify-content: center;
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.form-actions .auth-btn {
+    cursor: pointer; 
+    border: none; 
+}
+
 /* delete button */
 .delete-btn {
     background-color: #ff0000; 
@@ -618,9 +630,11 @@ h1 {
 }
 
 .member-card h3 {
-    font-size: 1.2rem; 
-    font-weight: 800; 
+    font-size: 0.85rem; 
+    font-weight: 700; 
     color: #ffffff; 
     text-transform: uppercase; 
     margin: 0; 
+    max-width: 100%; 
+    letter-spacing: 0.5px; 
 }
