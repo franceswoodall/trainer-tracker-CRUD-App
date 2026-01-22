@@ -84,15 +84,16 @@
             </form>
         <% } %>
         </div>
-        <a href="/trainers">Back to All Trainers</a>
+        <a href="/trainers" class="back-nav-link">Back to All Trainers</a>
         <% } %>
 
     <% } else { %>
         <p class="owner-text">Log in to favourite this trainer</p>
-        <a href="/trainers" class="auth-link-text">Back to All Trainers</a>
+        <a href="/trainers" class="back-nav-link">Back to Trainer Index</a>
     <% } %>
     </div>
 </div>
 
+      <%- include('partials/footer') %>
 </body>
 </html>

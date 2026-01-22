@@ -135,6 +135,7 @@ h1 {
     justify-content: center; 
 }
 
+/* buttons */
 .auth-btn {
     background-color: #ff6200;
     color: #ffffff; 
@@ -151,6 +152,7 @@ h1 {
     background-color: #e55a00;
 }
 
+/*bottom banner */
 .bottom-banner {
     background-color: #050505;
     border-top: 2px solid #ff6200;
@@ -369,15 +371,16 @@ h1 {
 }
 
 .trainer-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+    padding: 2.5rem 2rem;
     position: relative; 
     overflow: hidden; 
     background: rgba(30, 30, 30, 0.6); 
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1); 
     border-radius: 20px;
-    padding: 2.5rem 2rem;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.40); 
     transition: all 0.4s ease; 
@@ -402,9 +405,23 @@ h1 {
 }
 
 .card-nickname {
+    overflow: hidden; 
     font-size: 1.6rem; 
     margin: 0 0 1rem 0; 
     color: #ffffff; 
+}
+
+.card-meta {
+    margin-bottom: 2rem;
+    color: #888; 
+    font-size: 0.9rem; 
+}
+
+.card-footer {
+    margin-top: auto;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
 }
 
 .view-btn {
@@ -472,7 +489,7 @@ h1 {
     font-style: italic; 
 }
 
-.owner-status-text {
+.owner-text {
     color: #ffffff; 
     font-size: 1rem;
     font-style: italic;
@@ -484,8 +501,8 @@ h1 {
 .back-nav-link {
     color: #ffff; 
     text-decoration: none;
-    font-size: 0.9rem; 
-    font-weight: 500; 
-    margin-top: 1.5rem;
+    font-size: 1.1rem; 
+    font-weight: 600; 
+    margin-top: 2rem;
     display: inline-block;
 }
