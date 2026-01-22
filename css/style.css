@@ -431,3 +431,37 @@ h1 {
     transition: 0.5s; 
     z-index: 10; 
 }
+
+/* delete button */
+.delete-btn {
+    background-color: red;
+    border: none;
+}
+
+.button-group {
+    display: flex; 
+    gap: 1rem;;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.show-actions {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.popularity {
+    width: 100%; 
+    text-align: center; 
+    margin: 2rem 0; 
+}
+
+.popularity p {
+    margin: 0; 
+    color: #ffffff;
+    font-weight: 500;  
+    font-style: italic; 
+}

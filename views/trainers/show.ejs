@@ -4,51 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title><%= trainer.nickname %></title>
+    <title><%= trainer.nickname %> | TT</title>
 </head>
 <body>
     <%- include('../partials/navbar.ejs') %>
-    <h1>Trainer Profile: <%= trainer.nickname%></h1>
 
-    <ul>
-        <li>Brand: <%= trainer.brand %></li>
-        <li>Model: <%= trainer.model %></li>
-        <li>Terrain Type: <%= trainer.terrainType %></li>
-        <li>Price: £<%= trainer.price %></li>
-        <li>Owner: <%= trainer.owner ? trainer.owner.username: 'Unknown' %></li>
-        <li>Rating: <%= trainer.rating || 'not rated' %></li>
-    </ul>
+    <div class="page-container"> 
+        <h1>Trainer Profile: <%= trainer.nickname%></h1>
+    
 
-    <p>Popularity: <%= (trainer.favouritedByUsers?.length) || 0 %> Users have favourited this trainer! </p>
+        <div class="form-grid">
+            <div class="form-fields">
+                <label class="form-label">Brand</label>
+                <div class="form-input"><%= trainer.brand %></div>
+            </div>
+        
+        <div class="form-fields">
+            <label class="form-label">Model</label>
+            <div class="form-input"><%= trainer.model %></div>
+        </div>
+
+        <div class="form-fields">
+            <label class="form-label">Terrain Type</label>
+            <div class="form-input"><%= trainer.terrainType %></div>
+        </div>
+
+         <div class="form-fields">
+            <label class="form-label">Price</label>
+            <div class="form-input"><%= trainer.price %></div>
+        </div>
+
+        <div class="form-fields">
+            <label class="form-label">Owner</label>
+            <div class="form-input"><%= trainer.owner ? trainer.owner.username: 'Unknown' %></div>
+        </div>
+
+        <div class="form-fields">
+            <label class="form-label">Rating</label>
+            <div class="form-input"><%= trainer.rating || 'Not rated' %></div>
+        </div>
+        </div>
+
+        <div class="popularity">
+                <p>Popularity: <%= (trainer.favouritedByUsers?.length) || 0 %> Users have favourited this trainer! </p>
+        </div>
+    
+    <div class="show-actions">
     <% if (user) { %>
             <% if (trainer.owner && trainer.owner._id.equals(user._id)) { %>
-            <p>You own this trainer</p>
-            
-            <form action="/trainers/<%= trainer._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete trainer</button>
+            <p class="auth-user-text">You own this trainer</p>
+    </div>
+
+            <div class="button-group">
+                <div class="form-actions">
+                    <a href="/trainers/<%= trainer._id %>/edit" class="auth-btn">Edit Trainer</a>
+                </div>
+           
+                <div class="form-actions">
+                    <form action="/trainers/<%= trainer._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="auth-btn delete-btn">Delete trainer</button>
             </form>
-        <a href="/trainers/<%= trainer._id %>/edit">Edit Trainer</a>
+                </div>
         <a href="/trainers/my-trainers">Back to my Trainers</a>
 
         <% } else { %> 
-            <p>These trainers are owned by <%= trainer.owner? trainer.owner.username: 'Unknown' %></p>
+            <p class="auth-link-text">These trainers are owned by <%= trainer.owner? trainer.owner.username: 'Unknown' %></p>
         
-        <% if (userHasFavourited) { %>
+        <div class="form-actions">
+            <% if (userHasFavourited) { %>
             <form action="/trainers/<%= trainer._id %>/favourite?_method=DELETE" method="POST">
-                <button type="submit">Unfavourite</button>
+                <button type="submit" class="auth-btn">Unfavourite</button>
             </form>
 
         <% } else { %>
             <form action="/trainers/<%= trainer._id %>/favourite" method="POST">
-                <button type="submit">Favourite</button>
+                <button type="submit" class="auth-btn">Favourite</button>
             </form>
         <% } %>
-
+        </div>
+        
         <a href="/trainers">Back to All Trainers</a>
         <% } %>
+
     <% } else { %>
-        <p>Log in to favourite this trainer</p>
-        <a href="/trainers">Back to All Trainers</a>
+        <p class="auth-link-text">Log in to favourite this trainer</p>
+        <a href="/trainers" class="auth-link-text">Back to All Trainers</a>
     <% } %>
+    </div>
+</div>
+
 </body>
 </html>
