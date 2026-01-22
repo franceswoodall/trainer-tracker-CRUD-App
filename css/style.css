@@ -13,10 +13,23 @@ body {
     min-height: 100vh; 
 }
 
-h1, h2, h3, .nav-logo, .auth-btn, .nav-links a {
+h1, h2, h3, .nav-logo, .auth-btn, .nav-links a, .view-btn, .delete-btn {
     font-family: 'Rubik', sans-serif; 
     letter-spacing: 1px; 
     color: #ffffff; 
+    box-sizing: border-box; 
+    text-decoration: none;
+}
+
+.auth-btn, .view-btn, .delete-btn {
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    min-width: 140px; 
+    height: 48px; 
+    padding: 0 1.5rem;
+    border-radius: 50px;
+    cursor: pointer; 
 }
 
 .nav-container, .nav-links, .nav-auth {
@@ -192,23 +205,24 @@ h1 {
 
 .logo-icon {
     color: #000000; 
-    font-size: 4rem; 
+    font-size: 5rem; 
     text-align: center; 
-    margin-bottom: 0.5rem; 
+    margin-bottom: -10px; 
+    font-style: italic; 
 }
 
 .logo-text {
     font-size: 7rem; 
     display: flex; 
     gap: 0; 
-    line-height: 1; 
+    line-height: 0.8; 
     font-style: italic; 
 }
 
 .first-t {
     color:#ffffff; 
     font-weight: 900; 
-    padding-right: 2px; 
+    margin-right: 0;  
 }
 
 .second-t {
