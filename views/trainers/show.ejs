@@ -52,8 +52,8 @@
     <div class="show-actions">
     <% if (user) { %>
             <% if (trainer.owner && trainer.owner._id.equals(user._id)) { %>
-            <p class="auth-user-text">You own this trainer</p>
-    </div>
+            <p class="owner-text">You own this trainer</p>
+
 
             <div class="button-group">
                 <div class="form-actions">
@@ -64,11 +64,13 @@
                     <form action="/trainers/<%= trainer._id %>?_method=DELETE" method="POST">
                 <button type="submit" class="auth-btn delete-btn">Delete trainer</button>
             </form>
-                </div>
-        <a href="/trainers/my-trainers">Back to my Trainers</a>
+            </div>
+            </div>
+
+        <a href="/trainers/my-trainers" class="back-nav-link">Back to my Trainers</a>
 
         <% } else { %> 
-            <p class="auth-link-text">These trainers are owned by <%= trainer.owner? trainer.owner.username: 'Unknown' %></p>
+            <p class="owner-text">These trainers are owned by <%= trainer.owner? trainer.owner.username: 'Unknown' %></p>
         
         <div class="form-actions">
             <% if (userHasFavourited) { %>
@@ -82,12 +84,11 @@
             </form>
         <% } %>
         </div>
-        
         <a href="/trainers">Back to All Trainers</a>
         <% } %>
 
     <% } else { %>
-        <p class="auth-link-text">Log in to favourite this trainer</p>
+        <p class="owner-text">Log in to favourite this trainer</p>
         <a href="/trainers" class="auth-link-text">Back to All Trainers</a>
     <% } %>
     </div>
