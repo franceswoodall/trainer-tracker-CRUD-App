@@ -157,19 +157,26 @@ h1 {
 
 /*bottom banner */
 .bottom-banner {
-    background-color: #050505;
-    border-top: 2px solid #ff6200;
-    padding: 4rem 1rem;
-    gap: 1.5rem; 
-    text-align: center;
-    width: 100%;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    width: 100%; 
+    height: 250px; 
     display: flex; 
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem; 
+    align-items: center; 
+    justify-content: flex-start; 
+    margin-top: 5rem;
+    position: relative; 
+    overflow: hidden; 
+    
+    background: linear-gradient(to right, 
+        #ff6200 0%,
+        #e65a00 40%, 
+        #1a1a1a 85%, 
+        #121212 100%
+    ); 
+}
+
+.banner-logo-area {
+    padding-left: 5%;
+    z-index: 2; 
 }
 
 /* footer */
@@ -184,25 +191,32 @@ h1 {
 }
 
 .logo-icon {
-    font-size: 5rem;       
-    line-height: 0.8;           
-    color:#ffffff; 
+    color: #000000; 
+    font-size: 4rem; 
+    text-align: center; 
+    margin-bottom: 0.5rem; 
 }
 
 .logo-text {
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.5rem;      
-    font-weight: 900;
-    color: #ffffff;         
-    text-transform: uppercase;
-    font-style: italic;      
-    letter-spacing: 2px;
-    margin-top: -10px;       
+    font-size: 7rem; 
+    display: flex; 
+    gap: 0; 
+    line-height: 1; 
+    font-style: italic; 
 }
 
-.logo-text span:last-child {
-    color: #ff6200; 
+.first-t {
+    color:#ffffff; 
+    font-weight: 900; 
+    padding-right: 2px; 
 }
+
+.second-t {
+    color: transparent; 
+    font-weight: 900; 
+    -webkit-text-stroke: 3px #000000; 
+}
+
 
 
 .footer-logo:hover {
