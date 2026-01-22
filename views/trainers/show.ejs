@@ -24,7 +24,7 @@
             <% if (trainer.owner && trainer.owner._id.equals(user._id)) { %>
             <p>You own this trainer</p>
             
-            <form action="/trainers/<%= trainer._id %>/favourite?_method=DELETE" method="POST">
+            <form action="/trainers/<%= trainer._id %>?_method=DELETE" method="POST">
                 <button type="submit">Delete trainer</button>
             </form>
         <a href="/trainers/<%= trainer._id %>/edit">Edit Trainer</a>
