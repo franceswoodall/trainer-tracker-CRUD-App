@@ -8,17 +8,31 @@
 </head>
 <body>
       <%- include('./partials/navbar.ejs') %>
-      <h1>TrainerTrack Community</h1>
-      <p>A list of all members in our hub:</p>
 
-      <ul>
-        <% communityUsers.forEach(communityUser => { %>
-            <li>
-                <%= communityUser.username %>
-            </li>
+      <div class="page-container">
+        <header class="index-header">
+            <h1>The <span>Community</span></h1>
+            <p class="owner-status">A list of all members in our community:</p>
+        </header>
+
+        <div class="central-img">
+            <img src="https://cdn.eventtia.com/event_files/202447/original/about-banner?1734444543" alt="Female Running Event" class="community-img">
+            <div class="img-overlay"></div>
+        </div>
+
+        <div class="community-grid"> 
+            <% communityUsers.forEach(communityUser => { %>
+                <div class="member-card">
+                    <div class="member-icon">icon</div>
+                    <h3><%= communityUser.username %></h3>
+                </div>
         <% }) %>
-      </ul>
+        </div>
 
-        <%- include('partials/footer') %>
+        <div class="show-actions">
+            <a href="/" class="view-btn">Home</a>
+        </div>
+    </div>
+        <%- include('./partials/footer') %>
 </body>
 </html>
