@@ -342,25 +342,36 @@ h1 {
 
 .trainer-grid {
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax, (300px, 1fr)); 
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 2.5rem;
+    padding: 2rem 0; 
     max-width: 1200px; 
     margin: 0 auto; 
+    grid-auto-rows: 1fr; 
 }
 
 .trainer-card {
-    background-color: #1e1e1e; 
-    border: 1px solid #333; 
+    position: relative; 
+    overflow: hidden; 
+    background: rgba(30, 30, 30, 0.6); 
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1); 
     border-radius: 20px;
     padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.40); 
+    transition: all 0.4s ease; 
 }
 
 .trainer-card:hover {
     border-color: #ff6200;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); 
+}
+
+.trainer-card:hover::before {
+    left: 100%; 
 }
 
 .card-brand {
@@ -393,4 +404,16 @@ h1 {
 .view-btn:hover {
     background-color: #ff6200;
     color: #ffffff; 
+}
+
+.trainer-card::before {
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: -100%; 
+    width: 100%; 
+    height: 4px; 
+    background: linear-gradient(90deg, transparent, #ff6200, transparent); 
+    transition: 0.5s; 
+    z-index: 10; 
 }
