@@ -509,6 +509,24 @@ h1 {
     text-align: center;
 }
 
+/*add-new btn */
+.add-trainer-footer-btn {
+    background-color: #ff6200;
+    color: #ffffff;
+    border: none;
+    font-size: 1rem; 
+    font-weight: 800; 
+    text-transform: lowercase;
+    padding: 0.8rem 2.5rem; 
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(255, 98, 0, 0.3); 
+}
+
+.add-trainer-footer-btn:hover {
+    background-color: #e55a00;
+    box-shadow: 0 8px 25px rgba(255, 98, 0, 0.5); 
+}
+
 .popularity {
     width: 100%; 
     text-align: center; 
