@@ -32,7 +32,7 @@ body {
 }
 
 .secondary-btn:hover {
-    color: #ff6200; 
+    background-color: #ffaa33;
     cursor: pointer;
 }
 
