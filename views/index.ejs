@@ -10,11 +10,10 @@
     <%- include('./partials/navbar.ejs') %>
 
     <div class="page-container">
-
         <% if (user) { %>
             <header class="dashboard-header"> 
-            <h1>Welcome <%= user.username %></h1>
-            <p>Select a destination</p>
+                <h1>Welcome <%= user.username %></h1>
+                <p>Select a destination</p>
             </header> 
 
     <div class="dashboard-grid"> 
@@ -68,7 +67,7 @@
             <p>View the trainer index without an account</p>
             <div class="card-link">View</div>
         </a>
-    </div>
+        </div>
     <% } %>
     </div>
 
