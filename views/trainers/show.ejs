@@ -57,17 +57,17 @@
 
         <div class="button-group">
             <div class="form-actions">
-                <a href="/trainers/<%= trainer._id %>/edit" class="auth-btn">Edit Trainer</a>
+                <a href="/trainers/<%= trainer._id %>/edit" class="secondary-btn" role="button">Edit Trainer</a>
             </div>
            
             <div class="form-actions">
                 <form action="/trainers/<%= trainer._id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="auth-btn delete-btn">Delete trainer</button>
+                    <button type="submit" class="secondary-btn">Delete trainer</button>
                 </form>
             </div>
         </div>
 
-        <a href="/trainers/my-trainers" class="view-btn add-new-btn" style="margin-top: 20px;">Back to my Trainers</a>
+        <a href="/trainers/my-trainers" class="secondary-btn" style="margin-top: 20px;">Back to my Trainers</a>
 
         <% } else { %> 
             <p class="owner-text">These trainers are owned by <%= trainer.owner? trainer.owner.username: 'Unknown' %></p>
@@ -85,12 +85,12 @@
         <% } %>
         </div>
 
-            <a href="/trainers" class="back-nav-link">Back to All Trainers</a>
+            <a href="/trainers" class="secondary-btn">Back to All Trainers</a>
         <% } %>
 
         <% } else { %>
             <p class="owner-text">Log in to favourite this trainer</p>
-            <a href="/trainers" class="back-nav-link">Back to Trainer Index</a>
+            <a href="/trainers" class="secondary-btn">Back to Trainer Index</a>
         <% } %>
         </div>
     </div>

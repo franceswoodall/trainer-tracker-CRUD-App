@@ -14,23 +14,31 @@ body {
     min-height: 100vh; 
 }
 
-h1, h2, h3, .nav-logo, .auth-btn, .nav-links a, .view-btn, .delete-btn {
-    font-family: 'Rubik', sans-serif; 
-    letter-spacing: 1px; 
-    color: #ffffff; 
-    box-sizing: border-box; 
+
+.secondary-btn {
+    background-color: transparent; 
+    color: #ffffff;
+    padding: 0; 
+    min-width :0; 
+    height: auto; 
+    font-weight: 600; 
+    display: inline-block;
+    margin-top: 20px;
     text-decoration: none;
 }
 
-.auth-btn, .view-btn, .delete-btn {
-    display: inline-flex; 
-    align-items: center;
-    justify-content: center;
-    min-width: 140px; 
-    height: 48px; 
-    padding: 0 1.5rem;
-    border-radius: 50px;
-    cursor: pointer; 
+.nav-links a:visited, .secondary-btn:visited, .nav-auth a:visited {
+    color: #ffffff; 
+}
+
+.secondary-btn:hover {
+    color: #ff6200; 
+    cursor: pointer;
+}
+
+.secondary-btn:focus {
+    outline: 2px solid #ff6200; 
+    outline-offset: 4px;
 }
 
 .nav-container, .nav-links, .nav-auth {
@@ -78,10 +86,15 @@ h1, h2, h3, .nav-logo, .auth-btn, .nav-links a, .view-btn, .delete-btn {
     text-transform: uppercase;
 }
 
-.nav-auth a:hover, .auth-btn:hover, .view-btn:hover, .add-new-btn:hover, .nav-links a:hover {
-    background-color: #e55a00;
+.nav-auth a:hover, .auth-btn:hover, .view-btn:hover, .add-new-btn:hover {
+    background-color: #ffaa33;
     color: #ffffff; 
     cursor: pointer; 
+}
+
+.nav-links a:hover {
+    color: #ff6200; 
+    background-color: transparent;
 }
 
 .nav-auth a:focus, .auth-btn:focus, .view-btn:focus {
@@ -650,4 +663,29 @@ h1 {
     margin: 0; 
     max-width: 100%; 
     letter-spacing: 0.5px; 
+}
+
+/* force btns to be correct format */ 
+
+h1, h2, h3, .nav-logo, .auth-btn, .nav-links a, .view-btn, .delete-btn, .secondary-btn {
+    font-family: 'Rubik', sans-serif; 
+    letter-spacing: 1px; 
+    color: #ffffff; 
+    box-sizing: border-box; 
+    text-decoration: none;
+}
+
+.auth-btn, .view-btn, .delete-btn, .secondary-btn {
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    min-width: 140px; 
+    height: 48px; 
+    padding: 0 1.5rem;
+    border-radius: 50px;
+    cursor: pointer; 
+    background-color: #ff6200;
+    border: none; 
+    font-size: 0.85rem; 
+    font-weight: 700; 
 }
