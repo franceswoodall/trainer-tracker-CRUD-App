@@ -26,7 +26,6 @@ router.get('/my-trainers', async (req, res) => {
         user: req.session.user, 
     }); 
 } catch (error) {
-    console.log(error); 
     res.redirect('/');
 }
 }); 
@@ -38,7 +37,6 @@ router.get('/new', (req, res) => {
 router.post('/', async (req, res) => {
     try {
         req.body.owner = req.session.user._id; 
-        console.log('new trainer data received', req.body); 
         await Trainer.create(req.body); 
 
         req.session.save((error) => {
@@ -70,7 +68,6 @@ router.get('/:trainerId', async (req, res) => {
         }); 
 
     } catch (error) {
-        console.log(error); 
         res.redirect('/'); 
     }
 }); 
@@ -98,7 +95,6 @@ router.put('/:trainerId', async (req, res) => {
             res.send('You do not have permission to edit this trainer'); 
         }
     } catch (error) {
-        console.log(error); 
         res.redirect('/trainers'); 
     }
 }); 
@@ -114,7 +110,6 @@ router.delete('/:trainerId', async (req, res) => {
             res.send('You do not have permission to delete this trainer!'); 
         }
     } catch (error) {
-        console.log(error); 
         res.redirect('/'); 
     }
 })
@@ -126,7 +121,6 @@ router.post('/:trainerId/favourite', async (req, res) => {
         }); 
         res.redirect(`/trainers/${req.params.trainerId}`); 
     } catch (error) {
-        console.log(error); 
         res.redirect('/'); 
     }
 }); 
@@ -138,7 +132,6 @@ router.delete('/:trainerId/favourite', async (req, res) => {
         }); 
         res.redirect(`/trainers/${req.params.trainerId}`); 
     } catch (error) {
-        console.log(error); 
         res.redirect('/'); 
     }
 }); 

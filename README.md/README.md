@@ -18,6 +18,7 @@
 # Next steps / Planned Enhancements
     * The community aspect of this app has potential to be developed further with threads and comments so users can interact further with one another. 
     * Adapting for various screen types using media queries would be essential for optimal user experience. 
+    * Adapt colours to meet WCAG 2.0 level AA standards. 
     
 
 # Planning Materials

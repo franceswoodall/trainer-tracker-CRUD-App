@@ -52,8 +52,7 @@ app.get('/community', async (req, res) => {
     try {
         const allUsers = await User.find({}, 'username');
         res.render('community.ejs', { communityUsers: allUsers }); 
-    } catch (error) {
-        console.log(error); 
+    } catch (error) { 
         res.redirect('/'); 
     }
 }); 
