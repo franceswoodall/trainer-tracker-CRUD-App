@@ -46,26 +46,26 @@
         </div>
 
         <div class="popularity">
-                <p>Popularity: <%= (trainer.favouritedByUsers?.length) || 0 %> Users have favourited this trainer! </p>
+            <p>Popularity: <%= (trainer.favouritedByUsers?.length) || 0 %> Users have favourited this trainer! </p>
         </div>
     
     <div class="show-actions">
-    <% if (user) { %>
+        <% if (user) { %>
             <% if (trainer.owner && trainer.owner._id.equals(user._id)) { %>
             <p class="owner-text">You own this trainer</p>
 
 
-            <div class="button-group">
-                <div class="form-actions">
-                    <a href="/trainers/<%= trainer._id %>/edit" class="auth-btn">Edit Trainer</a>
-                </div>
+        <div class="button-group">
+            <div class="form-actions">
+                <a href="/trainers/<%= trainer._id %>/edit" class="auth-btn">Edit Trainer</a>
+            </div>
            
-                <div class="form-actions">
-                    <form action="/trainers/<%= trainer._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="auth-btn delete-btn">Delete trainer</button>
-            </form>
+            <div class="form-actions">
+                <form action="/trainers/<%= trainer._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="auth-btn delete-btn">Delete trainer</button>
+                </form>
             </div>
-            </div>
+        </div>
 
         <a href="/trainers/my-trainers" class="back-nav-link">Back to my Trainers</a>
 
@@ -73,10 +73,10 @@
             <p class="owner-text">These trainers are owned by <%= trainer.owner? trainer.owner.username: 'Unknown' %></p>
         
         <div class="form-actions">
-            <% if (userHasFavourited) { %>
-            <form action="/trainers/<%= trainer._id %>/favourite?_method=DELETE" method="POST">
-                <button type="submit" class="auth-btn">Unfavourite</button>
-            </form>
+        <% if (userHasFavourited) { %>
+                <form action="/trainers/<%= trainer._id %>/favourite?_method=DELETE" method="POST">
+                    <button type="submit" class="auth-btn">Unfavourite</button>
+                </form>
 
         <% } else { %>
             <form action="/trainers/<%= trainer._id %>/favourite" method="POST">
@@ -84,16 +84,17 @@
             </form>
         <% } %>
         </div>
-        <a href="/trainers" class="back-nav-link">Back to All Trainers</a>
+
+            <a href="/trainers" class="back-nav-link">Back to All Trainers</a>
         <% } %>
 
-    <% } else { %>
-        <p class="owner-text">Log in to favourite this trainer</p>
-        <a href="/trainers" class="back-nav-link">Back to Trainer Index</a>
-    <% } %>
+        <% } else { %>
+            <p class="owner-text">Log in to favourite this trainer</p>
+            <a href="/trainers" class="back-nav-link">Back to Trainer Index</a>
+        <% } %>
+        </div>
     </div>
-</div>
 
-      <%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
 </body>
 </html>

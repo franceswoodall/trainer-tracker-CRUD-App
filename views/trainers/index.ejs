@@ -11,12 +11,12 @@
 
      <div class="page-container">
         <header class="index-header">
-     <% if (typeof listType !== 'undefined' && listType === 'my-trainers') { %>
-        <h1>Here's a run-down of your <span>trainers!</span></h1>
-    <% } else { %>
-        <h1>Here's a run-down of all <span>trainers!</span></h1>
-    <% } %>
-    </header>
+        <% if (typeof listType !== 'undefined' && listType === 'my-trainers') { %>
+            <h1>Here's a run-down of your <span>trainers!</span></h1>
+        <% } else { %>
+            <h1>Here's a run-down of all <span>trainers!</span></h1>
+        <% } %>
+        </header>
 
     <div class="trainer-grid">
         <% trainers.forEach(trainer => { %>
@@ -31,17 +31,16 @@
             <div class="card-footer">
                 <a href="/trainers/<%= trainer._id %>" class="view-btn">View Details</a>
             </div>
-        </div>
+            </div>
         <% }); %>
     </div> 
 </div>
 
-<% if (user) { %>
-    <div class="show-actions">
-        <a href="/trainers/new" class="view-btn add-new-btn">Add New Trainer</a>
+        <% if (user) { %>
+            <div class="show-actions">
+                <a href="/trainers/new" class="view-btn add-new-btn">Add New Trainer</a>
+        <% } %>
     </div>
-<% } %>
-</div>
 
   <%- include('../partials/footer') %>
 </body>

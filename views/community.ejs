@@ -16,15 +16,15 @@
         </header>
 
         <div class="central-img">
-            <img src="https://cdn.eventtia.com/event_files/202447/original/about-banner?1734444543" alt="Female Running Event" class="community-img">
+            <img src="https://cdn.eventtia.com/event_files/202447/original/about-banner?1734444543" alt="Female Runners Running at event" class="community-img">
             <div class="img-overlay"></div>
         </div>
 
         <div class="community-grid"> 
             <% communityUsers.forEach(communityUser => { %>
                 <div class="member-card">
-                    <div class="member-icon">👤</div>
-                    <h3><%= communityUser.username %></h3>
+                <div class="member-icon">👤</div>
+                <h3><%= communityUser.username %></h3>
                 </div>
         <% }) %>
         </div>
@@ -33,6 +33,7 @@
             <a href="/" class="view-btn">Home</a>
         </div>
     </div>
-        <%- include('./partials/footer') %>
+
+    <%- include('./partials/footer') %>
 </body>
 </html>
