@@ -40,14 +40,11 @@ app.use('/auth', authController);
 app.use('/trainers', trainersController); 
 app.use(express.static('CSS')); 
 
-// routes
-
 app.get('/', async (req, res) => {
     res.render('index.ejs', {
     }); 
 }); 
 
-// community route 
 app.get('/community', async (req, res) => {
     if (!req.session.user) {
         return res.redirect('/auth/sign-in'); 
@@ -60,8 +57,6 @@ app.get('/community', async (req, res) => {
         res.redirect('/'); 
     }
 }); 
-
-// port
 
 app.listen(port, () => {
     console.log(`Trainer app is ready on port ${port}!`); 

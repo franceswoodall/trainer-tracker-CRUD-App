@@ -78,8 +78,15 @@ h1, h2, h3, .nav-logo, .auth-btn, .nav-links a, .view-btn, .delete-btn {
     text-transform: uppercase;
 }
 
-.nav-links a:hover, .auth-btn:hover {
-    color: #ff6200; 
+.nav-auth a:hover, .auth-btn:hover, .view-btn:hover, .add-new-btn:hover, .nav-links a:hover {
+    background-color: #e55a00;
+    color: #ffffff; 
+    cursor: pointer; 
+}
+
+.nav-auth a:focus, .auth-btn:focus, .view-btn:focus {
+    outline: 3px solid #ff6200;
+    outline-offset: 2px; 
 }
 
 .nav-auth {
@@ -164,10 +171,6 @@ h1 {
     font-weight: 700;
     font-size: 1.1rem; 
     cursor: pointer;
-}
-
-.auth-btn:hover {
-    background-color: #e55a00;
 }
 
 /* bottom banner */
@@ -485,11 +488,6 @@ h1 {
     text-transform: lowercase;
 }
 
-.view-btn:hover {
-    background-color: #ff6200;
-    color: #ffffff; 
-}
-
 .trainer-card::before {
     content: ''; 
     position: absolute; 
@@ -570,7 +568,6 @@ h1 {
 .owner-text {
     color: #ffffff; 
     font-size: 1rem;
-    font-style: italic;
     text-align: center;
     width: 100%; 
     margin-bottom: 1.5rem;
