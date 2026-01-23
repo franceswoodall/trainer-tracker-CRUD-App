@@ -4,7 +4,6 @@ const Trainer = require('../models/trainer.js');
 const User = require('../models/user.js'); 
 const bcrypt = require('bcrypt'); 
 
-// get all trainers
 router.get('/', async (req, res) => {
     try {
         const allTrainers = await Trainer.find({}).populate('owner'); 
@@ -17,7 +16,6 @@ router.get('/', async (req, res) => {
     }
 }); 
 
-// get a list of my trainer entries
 router.get('/my-trainers', async (req, res) => {
     try {
     const myTrainers = await Trainer.find({ owner: req.session.user._id }).populate('owner'); 
@@ -33,7 +31,6 @@ router.get('/my-trainers', async (req, res) => {
 }
 }); 
 
-// create a new trainer
 router.get('/new', (req, res) => {
     res.render('trainers/new.ejs'); 
 }); 
@@ -55,7 +52,6 @@ router.post('/', async (req, res) => {
     }
 }); 
 
-// get a specific trainer
 router.get('/:trainerId', async (req, res) => {
     try {
         const populatedTrainer = await Trainer.findById(req.params.trainerId).populate('owner'); 
@@ -79,7 +75,6 @@ router.get('/:trainerId', async (req, res) => {
     }
 }); 
 
-// render the edit form 
 router.get('/:trainerId/edit', async (req, res) => {
     try {
         const currentTrainer = await Trainer.findById(req.params.trainerId); 
@@ -91,7 +86,7 @@ router.get('/:trainerId/edit', async (req, res) => {
     };
 })
 
-// edit the trainer
+
 router.put('/:trainerId', async (req, res) => {
     try {
         const trainer = await Trainer.findById(req.params.trainerId); 
@@ -108,7 +103,6 @@ router.put('/:trainerId', async (req, res) => {
     }
 }); 
 
-// delete a specific trainer (the user must own)
 router.delete('/:trainerId', async (req, res) => {
     try {
         const trainer = await Trainer.findById(req.params.trainerId); 
@@ -125,7 +119,6 @@ router.delete('/:trainerId', async (req, res) => {
     }
 })
 
-//favouriting a trainer 
 router.post('/:trainerId/favourite', async (req, res) => {
     try {
         await Trainer.findByIdAndUpdate(req.params.trainerId, {
@@ -138,7 +131,6 @@ router.post('/:trainerId/favourite', async (req, res) => {
     }
 }); 
 
-//unfavouriting a trainer
 router.delete('/:trainerId/favourite', async (req, res) => {
     try {
         await Trainer.findByIdAndUpdate(req.params.trainerId, {
