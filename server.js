@@ -38,7 +38,7 @@ app.use((req, res, next) => {
 
 app.use('/auth', authController); 
 app.use('/trainers', trainersController); 
-app.use(express.static('CSS')); 
+app.use(express.static('css')); 
 
 app.get('/', async (req, res) => {
     res.render('index.ejs', {
